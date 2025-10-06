@@ -1,130 +1,204 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio - Matheus Marton</title>
+  <title>Portfólio | Matheus Marton Magalhães</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+    * {
       margin: 0;
-      background: #f5f5f5;
-      color: #333;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
+      scroll-behavior: smooth;
     }
+
+    body {
+      background: radial-gradient(circle at center, #0a0a1a 0%, #000010 100%);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
     header {
-      background: #222;
-      color: #fff;
-      padding: 20px;
       text-align: center;
+      padding: 100px 20px 60px;
+      position: relative;
     }
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
+
+    header h1 {
+      font-size: 3rem;
+      color: #ff69f5;
+      text-shadow: 0 0 10px #ff69f5, 0 0 20px #00ffff;
+      animation: glow 3s ease-in-out infinite alternate;
     }
+
+    header h2 {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #b0e0ff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff69f5, 0 0 20px #00ffff; }
+      to { text-shadow: 0 0 25px #ff69f5, 0 0 40px #00ffff; }
+    }
+
     section {
-      max-width: 900px;
-      margin: 40px auto;
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      position: relative;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+      font-size: 1.8rem;
+    }
+
+    .sobre, .projetos, .contato {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(0, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    }
+
+    .projeto {
+      border: 1px solid rgba(255, 105, 245, 0.3);
+      border-radius: 10px;
       padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      transition: 0.3s;
     }
-    h2 {
-      color: #222;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 8px;
+
+    .projeto:hover {
+      background: rgba(255, 105, 245, 0.05);
+      box-shadow: 0 0 15px rgba(255, 105, 245, 0.2);
+      transform: translateY(-3px);
     }
-    .projetos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+
+    .projeto a {
+      color: #00ffff;
+      text-decoration: none;
     }
-    .card {
-      background: #fafafa;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 15px;
+
+    .contato {
       text-align: center;
     }
-    .card img {
+
+    .contato a {
+      color: #00ffff;
+      margin: 0 10px;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .contato a:hover {
+      color: #ff69f5;
+    }
+
+    .btn-cv {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: linear-gradient(90deg, #00ffff, #ff69f5);
+      color: #000;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 15px #00ffff;
+      transition: 0.3s;
+    }
+
+    .btn-cv:hover {
+      box-shadow: 0 0 25px #ff69f5;
+      transform: scale(1.05);
+    }
+
+    /* Névoa animada */
+    .nevoa {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      border-radius: 6px;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      background: radial-gradient(circle, rgba(255,105,245,0.05) 0%, rgba(0,0,0,0.9) 100%);
+      animation: moverNevoa 20s infinite alternate;
     }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #222;
-      color: #fff;
-      margin-top: 40px;
+
+    @keyframes moverNevoa {
+      from { background-position: 0 0; }
+      to { background-position: 100% 100%; }
     }
+
   </style>
 </head>
 <body>
+  <div class="nevoa"></div>
+
   <header>
-    <h1>Matheus Marton</h1>
-    <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#ux">Projetos UX/UI</a>
-      <a href="#frontend">Front-End</a>
-      <a href="#contato">Contato</a>
-    </nav>
+    <h1>Matheus Marton Magalhães</h1>
+    <h2>Engenheiro de Software | Analista de TI | UX/UI & Front-End</h2>
   </header>
 
-  <section id="sobre">
-    <h2>Sobre mim</h2>
-    <p>Sou formado em Engenharia de Software e atuo como Analista de TI. 
-    Tenho experiência em suporte a sistemas corporativos e estou direcionando minha carreira para 
-    <strong>UX Design</strong> e <strong>Desenvolvimento Front-End</strong>. 
-    Gosto de criar interfaces intuitivas, responsivas e centradas no usuário.</p>
+  <section class="sobre">
+    <h3>Sobre Mim</h3>
+    <p>Sou formado em Engenharia de Software e atuo na área de TI, com experiência em suporte técnico, análise de sistemas e manutenção de ambientes corporativos. Tenho interesse e formação teórica em UX Design e Desenvolvimento Front-End, buscando constantemente unir a experiência do usuário à eficiência técnica.</p>
   </section>
 
-  <section id="ux">
-    <h2>Projetos UX/UI</h2>
-    <div class="projetos">
-      <div class="card">
-        <img src="ux1.png" alt="Projeto UX 1">
-        <h3>Redesign de App</h3>
-        <p>Estudo de caso focado em usabilidade e fluxo de navegação.</p>
-        <a href="https://figma.com" target="_blank">Ver no Figma</a>
-      </div>
-      <div class="card">
-        <img src="ux2.png" alt="Projeto UX 2">
-        <h3>Protótipo Web</h3>
-        <p>Protótipo navegável criado no Figma.</p>
-        <a href="https://behance.net" target="_blank">Ver no Behance</a>
-      </div>
+  <section class="projetos">
+    <h3>Projetos UX/UI</h3>
+
+    <div class="projeto">
+      <h4>Protótipo de Dashboard Responsiva</h4>
+      <p>Criação de interface voltada para análise de dados, com foco em usabilidade e layout adaptável a dispositivos móveis.</p>
+      <a href="#" target="_blank">Ver Projeto</a>
     </div>
-  </section>
 
-  <section id="frontend">
-    <h2>Projetos Front-End</h2>
-    <div class="projetos">
-      <div class="card">
-        <img src="front1.png" alt="Projeto Front-End 1">
-        <h3>Landing Page Responsiva</h3>
-        <p>Site criado em HTML, CSS e JavaScript.</p>
-        <a href="https://seunome.github.io/landingpage" target="_blank">Ver online</a>
-      </div>
-      <div class="card">
-        <img src="front2.png" alt="Projeto Front-End 2">
-        <h3>App To-Do List</h3>
-        <p>Aplicação simples para controle de tarefas.</p>
-        <a href="https://seunome.github.io/todolist" target="_blank">Ver online</a>
-      </div>
+    <div class="projeto">
+      <h4>Aplicativo de Missões Diárias (UI Concept)</h4>
+      <p>Design de aplicativo baseado em gamificação, com sistema de recompensas e progressão visual.</p>
+      <a href="#" target="_blank">Ver Projeto</a>
     </div>
+
   </section>
 
-  <section id="contato">
-    <h2>Contato</h2>
-    <p>📧 seuemail@email.com</p>
-    <p>🔗 <a href="https://linkedin.com/in/seulinkedin" target="_blank">LinkedIn</a></p>
-    <p>💻 <a href="https://github.com/seunome" target="_blank">GitHub</a></p>
+  <section class="projetos">
+    <h3>Projetos Front-End</h3>
+
+    <div class="projeto">
+      <h4>Página Pessoal com Tema Neon</h4>
+      <p>Site desenvolvido em HTML, CSS e JavaScript com design futurista e animações sutis de luz.</p>
+      <a href="#" target="_blank">Ver Repositório</a>
+    </div>
+
+    <div class="projeto">
+      <h4>Sistema de Monitoramento Simplificado</h4>
+      <p>Protótipo de painel para monitoramento de chamados e status de ferramentas corporativas.</p>
+      <a href="#" target="_blank">Ver Repositório</a>
+    </div>
+
   </section>
 
-  <footer>
-    <p>© 2025 - Portfólio de Matheus Marton</p>
-  </footer>
+  <section class="contato">
+    <h3>Contato</h3>
+    <p>
+      <a href="mailto:matheus467@hotmail.com">✉️ E-mail</a> |
+      <a href="https://www.linkedin.com/in/matheus-marton-589101323" target="_blank">💼 LinkedIn</a> |
+      <a href="https://github.com/matheusmarton467" target="_blank">💻 GitHub</a>
+    </p>
+
+    <a href="Curriculo_Matheus.pdf" class="btn-cv" target="_blank">⬇️ Baixar Currículo</a>
+  </section>
+
 </body>
 </html>
