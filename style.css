@@ -1,0 +1,603 @@
+/* ==================================================================== */
+/* 1. CONFIGURAÇÕES BASE (RESET e FONTE)                               */
+/* ==================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+/* Variáveis de Cor (Root) */
+:root {
+    --cyan: #00ffff;
+    --pink: #ff69f5;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000010;
+    color: #fff;
+    overflow-x: hidden;
+    /* Previne barras de rolagem horizontais indesejadas */
+}
+
+
+/* ==================================================================== */
+/* 2. BACKGROUNDS (VANTA, CANVAS LED)                                   */
+/* ==================================================================== */
+
+#vanta-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* Fica atrás de todo o conteúdo */
+}
+
+#ledCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    /* Fica acima do Vanta, mas atrás do conteúdo principal */
+    pointer-events: none;
+}
+
+
+/* ==================================================================== */
+/* 3. ESTRUTURA E ESTILO GERAL                                          */
+/* ==================================================================== */
+
+section {
+    padding: 60px 20px;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 50px;
+}
+
+/* Estilo para Títulos de Seção */
+h3 {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--cyan);
+    text-shadow: 0 0 10px var(--cyan);
+    font-size: 1.8rem;
+}
+
+/* Estilo de "Vidro" Neon para Seções */
+.sobre,
+.projetos,
+.contato {
+    /* CORREÇÃO: Fundo preto com 40% de opacidade para melhor leitura */
+    background: rgba(0, 0, 0, 0.40);
+
+    /* Mantém as bordas e sombras neon */
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+/* Estilo de Links e Botões */
+.contato a {
+    color: var(--cyan);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.contato a:hover {
+    color: var(--pink);
+}
+
+.pink-neon {
+    color: var(--pink);
+    /* Aplicamos o brilho neon rosa para destaque */
+    text-shadow: 0 0 5px var(--pink), 0 0 10px rgba(255, 105, 245, 0.4); 
+    /* Usamos um peso maior para que o texto se destaque na leitura */
+    font-weight: 600; 
+}
+
+/* ==================================================================== */
+/* 4. HEADER E ANIMAÇÃO GLOW                                            */
+/* ==================================================================== */
+
+header {
+    text-align: center;
+    padding: 100px 20px 60px;
+    position: relative;
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: var(--pink);
+    text-shadow: 0 0 10px var(--pink), 0 0 20px var(--cyan);
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+header h2 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #b0e0ff;
+    text-shadow: 0 0 10px var(--cyan);
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px var(--pink), 0 0 20px var(--cyan);
+    }
+
+    to {
+        text-shadow: 0 0 25px var(--pink), 0 0 40px var(--cyan);
+    }
+}
+
+
+/* ==================================================================== */
+/* 5. CARDS DE PROJETO (PROJETOS SECTION)                               */
+/* ==================================================================== */
+
+.projeto {
+
+    text-align: center;
+    flex: 1 1 250px;
+    max-width: 300px;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 0;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    transition: 0.3s;
+}
+
+.projetos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project-image-container {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.15), 0 0 20px rgba(255, 105, 245, 0.1);
+}
+
+.projeto img {
+    /* Posiciona a imagem absolutamente para ocupar o espaço definido pelo padding-top */
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    /* CRUCIAL: Usa 'contain' para mostrar a imagem INTEIRA sem cortes ou esticar. */
+    object-fit: contain;
+
+    /* Adiciona um background escuro para as bordas que surgirem */
+    background-color: #000010;
+
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.projeto:hover .project-image-container {
+    transform: scale(0.98);
+    /* Zoom out leve para dar foco ao brilho */
+    box-shadow: 0 0 15px var(--cyan), 0 0 30px var(--pink);
+    /* Brilho maior no hover */
+}
+
+.projeto:hover .project-image-container img {
+    transform: scale(1.0);
+    /* Remove o zoom na imagem, que agora está no container */
+}
+
+.projeto:hover {
+    /* Mantém o fundo sutil do card, ou torna ele levemente mais opaco */
+    background: rgba(0, 255, 255, 0.15);
+    /* Aumenta ligeiramente a opacidade do azul */
+
+    /* REMOVA A BORDA PADRÃO NO HOVER para que o brilho se destaque */
+    border-color: transparent;
+
+    /* NOVO: Sombra Dupla com Pink Dominante no HOVER */
+    box-shadow:
+        0 0 15px var(--pink),
+        /* Sombra pink forte */
+        0 0 30px rgba(0, 255, 255, 0.4);
+    /* Sombra ciano mais suave */
+
+    /* Efeito de "subir" o card */
+    transform: translateY(-5px);
+    /* Aumenta um pouco o efeito de flutuação */
+}
+
+.projeto a {
+    /* Transforma o link em um botão */
+    display: inline-block;
+    padding: 8px 15px;
+    margin-top: 15px;
+
+    /* ESTADO NORMAL: Fundo Escuro, Texto Ciano */
+    color: var(--cyan);
+    background-color: #080818;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+
+    /* Efeito Neon de Borda */
+    border: 1px solid var(--cyan);
+    box-shadow: 0 0 5px var(--cyan), 0 0 10px rgba(255, 105, 245, 0.4);
+
+    transition: all 0.3s ease;
+    text-decoration: none;
+    /* Mantém a remoção do underline */
+}
+
+.projeto a:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 0 5px var(--cyan), 0 0 10px var(--pink);
+}
+
+.projeto a:hover {
+    color: #000;
+    /* Texto Preto Sólido */
+    background-color: var(--cyan);
+    border-color: var(--pink);
+    box-shadow: 0 0 10px var(--pink), 0 0 20px var(--cyan);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.projeto p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.projeto h4 {
+    margin-top: 10px;
+    margin-bottom: 8px;
+    
+    /* ALTERAÇÃO CRÍTICA AQUI: MUDAR PARA ROSA NEON */
+    color: var(--pink); 
+    font-size: 1.1rem;
+    text-shadow: 0 0 8px var(--pink); /* O brilho agora é rosa */
+    /* FIM DA ALTERAÇÃO */
+}
+
+/* ==================================================================== */
+/* 6. CONTATO E BOTÃO CV                                                */
+/* ==================================================================== */
+
+.contato {
+    text-align: center;
+}
+
+.contato a {
+    margin: 0 10px;
+    font-size: 1.2rem;
+}
+
+.btn-cv {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 10px 20px;
+    background-color: #080818;
+    color: var(--cyan) !important;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    border: 2px solid var(--cyan);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4), 0 0 15px rgba(255, 105, 245, 0.2);
+    transition: 0.3s;
+}
+
+.btn-cv:hover {
+    background: linear-gradient(90deg, var(--cyan), var(--pink));
+    color: black !important;
+    border-color: var(--pink);
+    box-shadow: 0 0 20px var(--cyan), 0 0 35px var(--pink);
+    transform: scale(1.05);
+}
+
+
+/* ==================================================================== */
+/* 7. FANTASMA (NEON-CAT) E ANIMAÇÃO DE MOVIMENTO                       */
+/* ==================================================================== */
+
+#neon-cat {
+    position: fixed;
+    bottom: 25px;
+    /* Aumentado para dar espaço ao balão */
+    left: -100px;
+    /* Começa fora da tela */
+    width: 100px;
+    height: auto;
+    z-index: 6;
+    /* Acima do conteúdo principal */
+    pointer-events: none;
+    animation: moveCat 40s linear infinite;
+    filter: drop-shadow(0 0 8px var(--cyan)) drop-shadow(0 0 6px var(--pink));
+}
+
+#neon-cat svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@keyframes moveCat {
+    0% {
+        transform: scaleX(1) translateX(0);
+        left: -160px;
+    }
+
+    46% {
+        transform: scaleX(1);
+        left: calc(100% - 140px);
+    }
+
+    50% {
+        transform: scaleX(-1);
+    }
+
+    /* Vira a direção */
+    96% {
+        transform: scaleX(-1);
+        left: 0;
+    }
+
+    100% {
+        transform: scaleX(1);
+        left: -160px;
+    }
+}
+
+/* Traço Neon (Estrutura do SVG) */
+.stroke {
+    fill: none;
+    stroke: var(--cyan);
+    stroke-width: 3.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 8px var(--cyan)) drop-shadow(0 0 6px var(--pink));
+    animation: glowColor 4s ease-in-out infinite;
+}
+
+@keyframes glowColor {
+    0% {
+        stroke: var(--cyan);
+    }
+
+    50% {
+        stroke: var(--pink);
+    }
+
+    100% {
+        stroke: var(--cyan);
+    }
+}
+
+/* Olhos Padrão (Piscada) */
+.eye {
+    fill: var(--pink);
+    filter: drop-shadow(0 0 6px var(--pink));
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: blink 4.8s steps(1) infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    92% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    94% {
+        transform: scaleY(0.08);
+        opacity: 0.7;
+    }
+
+    96% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+
+/* ==================================================================== */
+/* 8. BALÃO DE FALA (GHOST-SPEECH-BUBBLE)                               */
+/* ==================================================================== */
+
+#ghost-speech-bubble {
+    position: fixed;
+    /* Posição fixa na tela (viewport) */
+    visibility: hidden;
+    opacity: 0;
+    width: 180px;
+    z-index: 100;
+    /* Acima de todos os outros elementos */
+
+    top: 0;
+    /* Posição inicial (será controlada pelo JS) */
+    left: 0;
+
+    transform: none !important;
+    /* IGNORA a inversão do fantasma */
+
+    background-color: var(--pink);
+    color: #000;
+    text-align: center;
+    border-radius: 8px;
+    padding: 8px 12px;
+
+    box-shadow: 0 0 10px var(--pink), 0 0 20px rgba(255, 105, 245, 0.6);
+    transition: opacity 0.3s, visibility 0.3s;
+    pointer-events: none;
+    /* Não bloqueia cliques no conteúdo abaixo */
+}
+
+/* Ativação (Visibilidade) */
+.bubble-active {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Triângulo / Seta: A ponta que aponta para baixo */
+#ghost-speech-bubble::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    /* Posição logo abaixo do balão */
+    margin-left: -10px;
+    /* Centraliza a seta */
+    border-width: 10px;
+    /* Tamanho da seta */
+    border-style: solid;
+    /* CORREÇÃO: A cor visível é a borda de cima, que 'corta' o fundo */
+    border-color: transparent;
+    border-top-color: var(--pink);
+}
+
+
+/* ==================================================================== */
+/* 9. EXPRESSÕES FACIAIS (OVERRIDE DO SVG)                              */
+/* ==================================================================== */
+
+/* 1. Visibilidade: Esconde APENAS as expressões alternativas por padrão */
+#expressions g {
+    display: none;
+}
+
+/* 2. Regras de Ativação: Mostra a expressão alternativa e esconde a padrão */
+.exp-desafio #exp-desafio {
+    display: block !important;
+}
+
+.exp-desafio #default-exp {
+    display: none !important;
+}
+
+.exp-interesse #exp-interesse {
+    display: block !important;
+}
+
+.exp-interesse #default-exp {
+    display: none !important;
+}
+
+.exp-orgulho #exp-orgulho {
+    display: block !important;
+}
+
+.exp-orgulho #default-exp {
+    display: none !important;
+}
+
+.exp-curriculo #exp-curriculo {
+    display: block !important;
+}
+
+.exp-curriculo #default-exp {
+    display: none !important;
+}
+
+/* 3. Estilo dos olhos e animação */
+
+/* Olhos da expressão PADRÃO (Com piscada) */
+#default-exp .eye {
+    fill: var(--pink) !important;
+    filter: drop-shadow(0 0 6px var(--pink));
+    animation: blink 4.8s steps(1) infinite;
+    /* Reativa a piscada no padrão */
+}
+
+/* Olhos em expressões alternativas (Sem piscada) */
+#expressions g .eye {
+    fill: var(--pink);
+    filter: drop-shadow(0 0 6px var(--pink));
+    animation: none !important;
+}
+
+/* Traços em expressões alternativas (Se for diferente do padrão) */
+#expressions g .stroke {
+    stroke: var(--pink);
+    fill: none;
+    filter: drop-shadow(0 0 6px var(--pink));
+}
+
+/* ==================================================================== */
+/* 10. ESTILOS ESPECÍFICOS PARA CERTIFICADOS                            */
+/* ==================================================================== */
+
+/* Estilo para a data e carga horária */
+.data-certificado,
+.carga-horaria {
+    /* Diminui a fonte para dar mais espaço */
+    font-size: 0.85rem;
+
+    /* Adiciona um toque neon na cor */
+    color: var(--cyan);
+
+    /* Garante que o texto se destaque um pouco */
+    opacity: 0.8;
+    margin: 5px 0;
+}
+
+/* Garante que a descrição do projeto não conflite */
+.projeto p {
+    margin-bottom: 15px;
+    /* Ajusta o espaçamento abaixo do texto do projeto */
+}
+
+/* ==================================================================== */
+/* MEDIA QUERIES (PARA RESPONSIVIDADE)                                 */
+/* ==================================================================== */
+
+/* Dispositivos menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+
+    /* Esta regra é crucial: permite que o card ocupe toda a largura */
+    .projeto {
+        max-width: 100%;
+        /* Ocupa 100% da largura da seção */
+    }
+
+    /* Reduz o padding das seções em telas pequenas */
+    .sobre,
+    .projetos,
+    .contato {
+        padding: 20px;
+    }
+}

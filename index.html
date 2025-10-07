@@ -1,143 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio | Matheus Marton Magalhães</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Orbitron', sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: #000010;
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    header {
-      text-align: center;
-      padding: 100px 20px 60px;
-      position: relative;
-      z-index: 1;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      color: #ff69f5;
-      text-shadow: 0 0 10px #ff69f5, 0 0 20px #00ffff;
-      animation: glow 3s ease-in-out infinite alternate;
-    }
-
-    header h2 {
-      margin-top: 10px;
-      font-size: 1.2rem;
-      color: #b0e0ff;
-      text-shadow: 0 0 10px #00ffff;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #ff69f5, 0 0 20px #00ffff; }
-      to { text-shadow: 0 0 25px #ff69f5, 0 0 40px #00ffff; }
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    h3 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffff;
-      font-size: 1.8rem;
-    }
-
-    .sobre, .projetos, .contato {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(0, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
-    }
-
-    .projeto {
-      border: 1px solid rgba(255, 105, 245, 0.3);
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      transition: 0.3s;
-    }
-
-    .projeto:hover {
-      background: rgba(255, 105, 245, 0.05);
-      box-shadow: 0 0 15px rgba(255, 105, 245, 0.2);
-      transform: translateY(-3px);
-    }
-
-    .projeto a {
-      color: #00ffff;
-      text-decoration: none;
-    }
-
-    .contato {
-      text-align: center;
-    }
-
-    .contato a {
-      color: #00ffff;
-      margin: 0 10px;
-      font-size: 1.2rem;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .contato a:hover {
-      color: #ff69f5;
-    }
-
-    .btn-cv {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      background: linear-gradient(90deg, #00ffff, #ff69f5);
-      color: #000;
-      font-weight: bold;
-      border-radius: 30px;
-      text-decoration: none;
-      box-shadow: 0 0 15px #00ffff;
-      transition: 0.3s;
-    }
-
-    .btn-cv:hover {
-      box-shadow: 0 0 25px #ff69f5;
-      transform: scale(1.05);
-    }
-
-    /* Fundo com névoa */
-    #vanta-bg {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- Efeito de névoa -->
+
+  <div id="neon-cat" aria-hidden="true">
+    <svg viewBox="0 0 140 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fantasma neon animado">
+
+      <path class="stroke" d="M 25 150
+                      L 25 80
+                      C 25 30 115 30 115 80
+                      L 115 150
+                      L 100 140
+                      L 85 150
+                      L 70 140
+                      L 55 150
+                      L 40 140
+                      Z" />
+
+      <g id="default-exp">
+        <ellipse class="eye" cx="55" cy="85" rx="8" ry="8" />
+        <ellipse class="eye" cx="85" cy="85" rx="8" ry="8" />
+      </g>
+
+      <g id="expressions">
+
+        <g id="exp-desafio">
+          <path class="stroke" d="M 50 85 L 60 85" stroke-width="3.5" stroke-linecap="round" />
+          <path class="stroke" d="M 80 85 L 90 85" stroke-width="3.5" stroke-linecap="round" />
+          <path class="stroke" d="M 50 75 L 58 78" stroke-width="2.5" stroke-linecap="round" />
+          <path class="stroke" d="M 90 75 L 82 78" stroke-width="2.5" stroke-linecap="round" />
+          <path class="stroke" d="M 40 61 Q 45 51, 50 61 T 40 61" stroke-width="2" fill="none" />
+          <circle class="stroke" cx="70" cy="98" r="3" stroke-width="2" fill="none" />
+        </g>
+
+        <g id="exp-interesse">
+          <path class="stroke" d="M 55 81 V 89 M 51 85 H 59" stroke-width="2" stroke-linecap="round" />
+          <path class="stroke" d="M 85 81 V 89 M 81 85 H 89" stroke-width="2" stroke-linecap="round" />
+          <path class="stroke" d="M 65 100 C 70 105, 75 105, 80 100" stroke-width="3" fill="none" />
+        </g>
+
+        <g id="exp-orgulho">
+          <path class="stroke" d="M 50 85 L 60 85" stroke-width="3.5" stroke-linecap="round" />
+          <path class="stroke" d="M 80 85 L 90 85" stroke-width="3.5" stroke-linecap="round" />
+          <path class="stroke" d="M 65 102 Q 70 106, 75 102" stroke-width="3" fill="none" />  
+        </g>
+
+        <g id="exp-curriculo">
+          <path class="stroke" d="M 50 85 L 55 80 L 60 85" stroke-width="3.5" stroke-linecap="round" fill="none" />
+          <path class="stroke" d="M 80 85 L 85 80 L 90 85" stroke-width="3.5" stroke-linecap="round" fill="none" />
+          <circle class="stroke" cx="70" cy="95" r="4" stroke-width="2.5" fill="none" /> 
+        </g>
+      </g>
+
+      <circle class="stroke paw" cx="70" cy="155" r="5" style="opacity: 0.4;" />
+
+    </svg>
+  </div>
+
+  <div id="ghost-speech-bubble"></div>
+
   <div id="vanta-bg"></div>
+  <canvas id="ledCanvas"></canvas>
 
   <header>
     <h1>Matheus Marton Magalhães</h1>
@@ -146,68 +77,167 @@
 
   <section class="sobre">
     <h3>Sobre Mim</h3>
-    <p>Sou formado em Engenharia de Software e atuo na área de TI, com experiência em suporte técnico, análise de sistemas e manutenção de ambientes corporativos. Tenho interesse e formação teórica em UX Design e Desenvolvimento Front-End, buscando constantemente unir a experiência do usuário à eficiência técnica.</p>
+    <div class="about-content">
+
+      <p>
+        Sou Matheus Marton Magalhães, um profissional com formação em <span class="pink-neon">Engenharia de
+          Software</span> e experiência prática em ambientes de <span class="pink-neon">TI
+          críticos</span>. Minha vivência em suporte a sistemas corporativos aprimorou meu
+        <span class="pink-neon">raciocínio lógico</span> e a habilidade de garantir a estabilidade e a eficiência das
+        operações.
+      </p>
+      <br>
+      <p>
+        Minha paixão está em aplicar essa base sólida e analítica no desenvolvimento de produtos digitais. Sou
+        proficiente em <span class="pink-neon">HTML, CSS, JavaScript</span> e busco oportunidades que
+        permitam focar em <span class="pink-neon">Usabilidade, Prototipação</span> e <span class="pink-neon">Arquitetura
+          da Informação</span>.
+      </p>
+      <br>
+      <p>
+        Meu objetivo é unir a disciplina da Engenharia com a criatividade do Design para construir soluções robustas,
+        adaptáveis e, acima de tudo, centradas na experiência do usuário. Estou sempre pronto para me adaptar a novos
+        desafios tecnológicos.
+      </p>
+
+    </div>
   </section>
-  <br></br>
+
   <section class="projetos">
-    <h3>Projetos UX/UI</h3>
+    <h3>Projetos e Portifolios</h3>
 
     <div class="projeto">
+      <div class="project-image-container">
+        <img src="img/Projeto01.png" alt="Miniatura do Protótipo de Dashboard" loading="lazy">
+      </div>
+
       <h4>Protótipo de Dashboard Responsiva</h4>
-      <p>Criação de interface voltada para análise de dados, com foco em usabilidade e layout adaptável a dispositivos móveis.</p>
-      <a href="#" target="_blank">Ver Projeto</a>
+      <p>Criação de interface voltada para análise de dados, com foco em usabilidade e layout adaptável a dispositivos
+        móveis.</p>
+      <a href="#" target="_blank" data-speak="ver-projeto">Ver Projeto</a>
     </div>
 
     <div class="projeto">
-      <h4>Aplicativo de Missões Diárias (UI Concept)</h4>
-      <p>Design de aplicativo baseado em gamificação, com sistema de recompensas e progressão visual.</p>
-      <a href="#" target="_blank">Ver Projeto</a>
+      <div class="project-image-container">
+        <img src="img/Projeto02.jpg" alt="Miniatura do Protótipo Mobile" loading="lazy">
+      </div>
+
+      <h4>Protótipo de Aplicativo Móvel (UX/UI)</h4>
+      <p>Design de um fluxo de usuário completo, desde wireframes até o protótipo de alta fidelidade, para um aplicativo
+        de nicho.</p>
+      <a href="#" target="_blank" data-speak="ver-projeto">Ver Projeto</a>
+    </div>
+
+    <div class="projeto">
+      <div class="project-image-container">
+        <img src="img/Projeto03.jpg" alt="Miniatura do Protótipo Mobile" loading="lazy">
+      </div>
+
+      <h4>Protótipo de Aplicativo Móvel (UX/UI)</h4>
+      <p>Design de um fluxo de usuário completo, desde wireframes até o protótipo de alta fidelidade, para um aplicativo
+        de nicho.</p>
+      <a href="#" target="_blank" data-speak="ver-projeto">Ver Projeto</a>
+    </div>
+
+    <div class="projeto">
+      <div class="project-image-container">
+        <img src="img/Projeto04.png" alt="Miniatura do Protótipo Mobile" loading="lazy">
+      </div>
+
+      <h4>Protótipo de Aplicativo Móvel (UX/UI)</h4>
+      <p>Design de um fluxo de usuário completo, desde wireframes até o protótipo de alta fidelidade, para um aplicativo
+        de nicho.</p>
+      <a href="#" target="_blank" data-speak="ver-projeto">Ver Projeto</a>
     </div>
 
   </section>
-  <br></br>
-  <section class="projetos">
-    <h3>Projetos Front-End</h3>
 
+  <section id="certificados" class="projetos">
+    <h3>Certificados</h3>
     <div class="projeto">
-      <h4>Página Pessoal com Tema Neon</h4>
-      <p>Site desenvolvido em HTML, CSS e JavaScript com design futurista e animações sutis de luz.</p>
-      <a href="#" target="_blank">Ver Repositório</a>
+
+      <div class="project-image-container">
+        <img src="img/certificado01.png" alt="Certificado - Nome do Curso">
+      </div>
+
+      <h4>[Nome do Curso 1]</h4>
+      <p class="data-certificado">Conclusão: Outubro 2023</p>
+      <p class="carga-horaria">Carga Horária: 80h</p>
+      <a href="https://www.gov.br/pt-br/servicos/verificar-autenticidade-de-certificado-de-regularidade-emitido"
+        target="_blank" data-speak="ver-curriculo1">Ver Credencial</a>
     </div>
 
     <div class="projeto">
-      <h4>Sistema de Monitoramento Simplificado</h4>
-      <p>Protótipo de painel para monitoramento de chamados e status de ferramentas corporativas.</p>
-      <a href="#" target="_blank">Ver Repositório</a>
+      <div class="project-image-container">
+        <img src="img/certificado02.png" alt="Certificado - Nome do Curso">
+      </div>
+
+      <h4>[Nome do Curso 2]</h4>
+      <p class="data-certificado">Conclusão: Setembro 2023</p>
+      <p class="carga-horaria">Carga Horária: 40h</p>
+      <a href="https://www.gov.br/pt-br/servicos/verificar-autenticidade-de-certificado-de-regularidade-emitido"
+        target="_blank" data-speak="ver-curriculo2">Ver Credencial</a>
     </div>
 
+    <div class="projeto">
+      <div class="project-image-container">
+        <img src="img/certificado03.png" alt="Certificado - Nome do Curso">
+      </div>
+
+      <h4>[Nome do Curso 3]</h4>
+      <p class="data-certificado">Conclusão: Setembro 2023</p>
+      <p class="carga-horaria">Carga Horária: 40h</p>
+      <a href="https://www.gov.br/pt-br/servicos/verificar-autenticidade-de-certificado-de-regularidade-emitido"
+        target="_blank" data-speak="ver-curriculo1">Ver Credencial</a>
+    </div>
+
+    <div class="projeto">
+      <div class="project-image-container">
+        <img src="img/certificado04.png" alt="Certificado - Nome do Curso">
+      </div>
+
+      <h4>[Nome do Curso 4]</h4>
+      <p class="data-certificado">Conclusão: Setembro 2023</p>
+      <p class="carga-horaria">Carga Horária: 40h</p>
+      <a href="https://www.gov.br/pt-br/servicos/verificar-autenticidade-de-certificado-de-regularidade-emitido"
+        target="_blank" data-speak="ver-curriculo3">Ver Credencial</a>
+    </div>
   </section>
-  <br></br>
+
   <section class="contato">
     <h3>Contato</h3>
     <p>
-      <a href="mailto:matheus467@hotmail.com">✉️ E-mail</a> |
-      <a href="https://www.linkedin.com/in/matheus-marton-589101323" target="_blank">💼 LinkedIn</a> |
-      <a href="https://github.com/matheusmarton467" target="_blank">💻 GitHub</a>
+      <a href="mailto:matheus467@hotmail.com" data-speak="contato-email">✉️ E-mail</a> |
+      <a href="https://www.linkedin.com/in/matheus-marton-589101323" target="_blank" data-speak="contato-linkedin">💼
+        LinkedIn</a> |
+      <a href="https://github.com/matheusmarton467" target="_blank" data-speak="contato-github">💻 GitHub</a>
     </p>
-    <br></br>
-    <a href="Curriculo_Matheus.pdf" class="btn-cv" target="_blank"> Baixar Currículo</a>
+
+    <br> <a href="Curriculo_Matheus.pdf" class="btn-cv" target="_blank" data-speak="baixar-curriculo"
+      download="Curriculo_Matheus.pdf">
+      Baixar Currículo
+    </a>
   </section>
-  <br></br>
-  <!-- Scripts do efeito de névoa -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
   <script>
     VANTA.FOG({
       el: "#vanta-bg",
-	  highlightColor: 0xff69f5,  // Rosa neon
-	  midtoneColor: 0x00b7ff,    // Azul mais claro
-	  lowlightColor: 0x050516,   // Sombra sutil
-	  baseColor: 0x080818,       // Fundo mais translúcido
-	  blurFactor: 0.1,           // Névoa mais leve
-	  speed: 0.8,                // Movimento mais suave
-	  zoom: 1.05                 // Pequeno zoom (profundidade)
-    })
+      highlightColor: 0xff69f5, /* Rosa Neon */
+      midtoneColor: 0x00b7ff,  /* Ciano / Azul Claro */
+      lowlightColor: 0x050516, /* Quase Preto (base) */
+      baseColor: 0x080818,     /* Base Escura */
+      blurFactor: 0.1,
+      speed: 0.8,
+      zoom: 1.05
+    });
   </script>
+
+  <script src="script.js"></script>
+
 </body>
+
 </html>
