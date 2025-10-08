@@ -13,7 +13,7 @@ let confettiInterval = null;
 
 // Mapeamento de EXPRESSÕES (Chave do data-speak -> Classe CSS do SVG)
 const expressionMap = {
-    'ver-projeto': 'xp-orgulho',
+    'ver-projeto': 'exp-orgulho',
     'ver-projeto1': 'exp-desafio',
     'ver-curriculo1': 'exp-desafio',
     'ver-curriculo2': 'exp-orgulho',
