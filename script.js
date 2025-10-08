@@ -13,7 +13,8 @@ let confettiInterval = null;
 
 // Mapeamento de EXPRESSÕES (Chave do data-speak -> Classe CSS do SVG)
 const expressionMap = {
-    'ver-projeto': 'exp-desafio',
+    'ver-projeto': 'xp-orgulho',
+    'ver-projeto1': 'exp-desafio',
     'ver-curriculo1': 'exp-desafio',
     'ver-curriculo2': 'exp-orgulho',
     'ver-curriculo3': 'exp-orgulho',
@@ -25,7 +26,8 @@ const expressionMap = {
 
 // Mapeamento de FRASES (Chave do data-speak -> Texto exibido no balão)
 const phrases = {
-    'ver-projeto': 'A usabilidade é fantástica! Mas deu um trabalho...',
+    'ver-projeto': 'Em breve teremos mais projetos postados!',
+    'ver-projeto1': 'Tão divertido de jogar, Mas deu um trabalho...',
     'ver-curriculo1': 'Muita dedicação por trás deste aqui! Valeu a pena cada hora de estudo!',
     'ver-curriculo2': 'Adorei fazer este curso! Um ótimo complemento para o meu portfólio!',
     'ver-curriculo3': 'Orgulho em mostrar este certificado. Pode clicar para conferir!',
