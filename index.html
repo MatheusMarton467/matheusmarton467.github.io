@@ -104,101 +104,648 @@
   </section>
 
   <section class="projetos">
+    <br>
     <h3>Projetos e Portifolios</h3>
 
-    <div class="projeto">
-      <div class="project-image-container">
-        <img src="img/ProjetoGame.png" alt="Miniatura do Aplicativo de Hábitos Diários" loading="lazy">
+    <div class="projeto" id="Projeto01">
+
+      <div class="conteudo-card">
+
+        <div class="project-image-container">
+          <img src="img/Projeto01.png" alt="Miniatura do Projeto Diary Quest">
+        </div>
+
+        <div class="info-projeto">
+          <h4>Aplicativo de Hábitos Diários</h4>
+          <h1>Contexto</h1><br>
+          <p>O Diary Quest nasceu como um projeto pessoal para explorar conceitos de UX e interface gamificada. A ideia
+            surgiu ao perceber que, apesar de existirem diversos aplicativos de hábitos, muitos usuários relatam
+            dificuldade em manter consistência por mais de algumas semanas, principalmente pela falta de motivação e
+            pelo caráter repetitivo das tarefas. Busquei criar uma solução que unisse produtividade, motivação e
+            elementos de jogos, tornando a jornada do usuário mais leve e estimulante.</p>
+        </div>
+
       </div>
 
-      <h4>Aplicativo de Hábitos Diários</h4>
-      <p>O projeto foi desenvolvido com o objetivo de criar uma experiência gamificada para ajudar usuários a manter hábitos saudáveis de forma divertida.</p>
-      <a href="https://matheusmarton467.github.io/Projeto01" target="_blank" data-speak="ver-projeto1">Ver Projeto</a>
-    </div>
+      <div class="buttons-bar-container">
 
-    <div class="projeto">
-      <div class="project-image-container">
-        <img src="img/Projeto02.jpg" alt="Miniatura do Protótipo Mobile" loading="lazy">
+        <a href="#" class="btn-ver-projeto btn-detalhes-toggle" data-speak="ver-projeto1"data-target="detalhes-projeto01">Mais detalhes</a>
+      
+        <a href="https://matheusmarton467.github.io/Projeto01" target="_blank" class="btn-ver-projeto"data-speak="ver-projeto1">Ver o Projeto</a>
+      
       </div>
 
-      <h4>Em Breve</h4>
-      <p>Aqui e so pra testar a descrição do projeto se acalme</p>
-      <a href="#" target="_blank" data-speak="ver-projeto">Ver Projeto</a>
+      <div class="detalhes-adicionais" id="detalhes-projeto01">
+        <br>
+
+        <h2>Problema</h2><br>
+        <p>A maioria dos aplicativos de hábitos apresenta desafios comuns:</p>
+        <ul>
+          <li>Interface funcional, porém pouco engajadora.</li>
+          <li>Falta de recompensas claras ou feedback positivo.</li>
+          <li>Jornada do usuário linear e chata.</li>
+          <li>Pouca sensação de progresso real.</li>
+        </ul>
+        <p>Os usuários iniciam motivados, mas perdem interesse rapidamente porque a experiência parece mais uma
+          obrigação do que uma jornada evolutiva.</p>
+
+        <h2>Objetivos</h2><br>
+        <p>Criar uma experiência gamificada que incentive consistência:</p>
+        <ul>
+          <li>Transformar tarefas diárias em pequenas missões.</li>
+          <li>Adicionar recompensas visuais e sonoras imediatas.</li>
+          <li>Tornar o processo de consumo de hábitos mais divertido e menos burocrático.</li>
+          <li>Criar um fluxo coeso que funcione bem tanto no desktop quanto no mobile.</li>
+        </ul><br>
+
+        <h2>Pesquisa</h2><br>
+        <p>Realizei uma pesquisa exploratória de pequeno alcance com 5 usuários que já tinham utilizado apps de
+          hábitos. Entre os principais achados:</p>
+        <ul>
+          <li>Todos começaram apps de hábitos mais de uma vez, mas abandonaram após algumas semanas.</li>
+          <li>O principal motivo citado foi: "fica chato", "perde a graça", "vira obrigação".</li>
+          <li>3 disseram que a falta de feedback imediato era a maior frustração.</li>
+          <li>5 disseram que gostariam de sentir "progresso visual real".</li>
+          <li>2 mencionaram dificuldade de uso em telas menores.</li>
+        </ul><br>
+        <p>Também analisei brevemente apps concorrentes como Habitica, Tictic e Fabulous para entender boas práticas
+          e pontos fracos.</p>
+
+        <h2>Jornada</h2><br>
+        <p>Estruturei uma jornada simples baseada no padrão diário:</p>
+        <ol>
+          <li>**Abertura do app** <br> O usuário vê seu status, XP atual e progresso do dia.</li>
+          <li>**Visualização das Missões** <br> As tarefas diárias são apresentadas como missões com níveis de
+            dificuldade.</li>
+          <li>**Missão/Missão Diária Concluída** <br> O usuário recebe feedback instantâneo e vê seu progresso
+            aumentar.</li>
+          <li>**Feedback Imediato** <br> Recebe animação de ganho de nível + XP.</li>
+          <li>**Gerenciamento do Dia** <br> O usuário revisa seu desempenho e vê quanto falta para subir de nível.
+          </li>
+        </ol>
+        <p>Essa jornada foi validada verbalmente com os participantes da pesquisa, que afirmaram preferir algo
+          "rápido e recompensador".</p>
+
+        <h2>Wireframes</h2><br>
+        <p>Os wireframes foram desenhados com foco em:</p>
+        <ul>
+          <li>Simplicidade.</li>
+          <li>Organização visual das missões.</li>
+          <li>Painel lateral com as tarefas e perfil.</li>
+          <li>Fluxo de conclusão de tarefas em no máximo 2 toques.</li>
+        </ul>
+        <p>A navegação foi pensada para ser disruptiva e fluida tanto em mobile quanto desktop.</p>
+
+        <h2>Protótipo</h2><br>
+        <p>O protótipo navegável foi criado no Figma com foco em:</p>
+        <ul>
+          <li>Interface escura e moderna, reduzindo fadiga visual.</li>
+          <li>Destaque para feedbacks positivos.</li>
+          <li>Botões grandes e acessíveis.</li>
+          <li>Microninterações suaves no ganho de XP.</li>
+        </ul>
+        <p>O protótipo está disponível no link dentro do portfólio e é totalmente navegável.</p>
+
+        <h2>Testes</h2><br>
+        <p>Foram realizados testes rápidos com 3 usuários (abordagem guerrilha):</p>
+
+        <h2>Principais percepções positivas:</h2><br>
+        <ul>
+          <li>"Parece um jogo mesmo, gostei disso."</li>
+          <li>"Simples, direto ao ponto, não fica me empurrando."</li>
+          <li>"Gostei do XP, me deu vontade de completar tudo."</li>
+        </ul><br>
+
+        <h2>Ajustes identificados:</h2><br>
+        <ul>
+          <li>Melhorar o contraste de alguns textos.</li>
+          <li>Adicionar feedback mais marcante ao concluir uma missão.</li>
+          <li>Deixar mais claro onde criar novas missões.</li>
+        </ul>
+        <p>Esses pontos já foram incorporados no protótipo final.</p>
+
+        <h2>Conclusões</h2><br>
+        <p>O Diary Quest mostrou que a gamificação pode transformar uma tarefa repetitiva (como registrar hábitos)
+          em algo motivador e leve.</p>
+        <p>O projeto me permitiu aplicar conceitos reais de:</p>
+        <ul>
+          <li>pesquisa,</li>
+          <li>estruturação de jornada,</li>
+          <li>prototipação,</li>
+          <li>testes rápidos,</li>
+          <li>design voltado à motivação do usuário.</li>
+        </ul>
+        <p>Também reforçou a importância de feedback imediato e sensação de progresso visível.</p>
+
+        <h2>Próximos Passos</h2><br>
+        <ul>
+          <li>Criar sistema de avatares personalizáveis.</li>
+          <li>Introduzir conquistas (badges) e desafios semanais.</li>
+          <li>Nova tela dedicada à criação de missões.</li>
+          <li>Expandir micro-interações com animações suaves.</li>
+          <li>Validar o protótipo com mais usuários e iniciar a versão 2.0.</li>
+          <li>Migrar para uma versão funcional com React.</li>
+        </ul>
+
+        <div class="project-button-container">
+          <a href="https://matheusmarton467.github.io/Projeto01" target="_blank" class="btn-ver-projeto"
+            data-speak="ver-projeto1">Ver o Projeto</a>
+        </div>
+
+      </div>
     </div>
 
-    <div class="projeto">
-      <div class="project-image-container">
-        <img src="img/Projeto03.jpg" alt="Miniatura do Protótipo Mobile" loading="lazy">
+    <div class="projeto" id="Projeto02">
+
+      <div class="conteudo-card">
+
+        <div class="project-image-container">
+          <img src="img/Projeto02.jpg" alt="Miniatura do Projeto Diary Quest">
+        </div>
+
+        <div class="info-projeto">
+          <h4>Em Breve</h4>
+          <h1>Contexto</h1><br>
+          <p>Aqui e so pra testar a descrição do projeto se acalme</p>
+        </div>
+
       </div>
 
-      <h4>Em Breve</h4>
-      <p>Aqui e so pra testar a descrição do projeto se acalme</p>
-      <a href="#" target="_blank" data-speak="ver-projeto">Ver Projeto</a>
-    </div>
-
-    <div class="projeto">
-      <div class="project-image-container">
-        <img src="img/Projeto04.jpg" alt="Miniatura do Protótipo Mobile" loading="lazy">
+      <div class="toggle-container">
+        <a href="#" class="btn-ver-projeto btn-detalhes-toggle btn-em-breve" data-speak="ver-projeto"
+          data-target="detalhes-projeto02">Em breve</a>
       </div>
 
-      <h4>Em Breve</h4>
-      <p>Aqui e so pra testar a descrição do projeto se acalme</p>
-      <a href="#" target="_blank" data-speak="ver-projeto">Ver Projeto</a>
+      <div class="detalhes-adicionais" id="detalhes-projeto02">
+        <br>
+
+        <h2>Problema</h2><br>
+        <p>A maioria dos aplicativos de hábitos apresenta desafios comuns:</p>
+        <ul>
+          <li>Interface funcional, porém pouco engajadora.</li>
+          <li>Falta de recompensas claras ou feedback positivo.</li>
+          <li>Jornada do usuário linear e chata.</li>
+          <li>Pouca sensação de progresso real.</li>
+        </ul>
+        <p>Os usuários iniciam motivados, mas perdem interesse rapidamente porque a experiência parece mais uma
+          obrigação do que uma jornada evolutiva.</p>
+
+        <h2>Objetivos</h2><br>
+        <p>Criar uma experiência gamificada que incentive consistência:</p>
+        <ul>
+          <li>Transformar tarefas diárias em pequenas missões.</li>
+          <li>Adicionar recompensas visuais e sonoras imediatas.</li>
+          <li>Tornar o processo de consumo de hábitos mais divertido e menos burocrático.</li>
+          <li>Criar um fluxo coeso que funcione bem tanto no desktop quanto no mobile.</li>
+        </ul><br>
+
+        <h2>Pesquisa</h2><br>
+        <p>Realizei uma pesquisa exploratória de pequeno alcance com 5 usuários que já tinham utilizado apps de
+          hábitos. Entre os principais achados:</p>
+        <ul>
+          <li>Todos começaram apps de hábitos mais de uma vez, mas abandonaram após algumas semanas.</li>
+          <li>O principal motivo citado foi: "fica chato", "perde a graça", "vira obrigação".</li>
+          <li>3 disseram que a falta de feedback imediato era a maior frustração.</li>
+          <li>5 disseram que gostariam de sentir "progresso visual real".</li>
+          <li>2 mencionaram dificuldade de uso em telas menores.</li>
+        </ul><br>
+        <p>Também analisei brevemente apps concorrentes como Habitica, Tictic e Fabulous para entender boas práticas
+          e pontos fracos.</p>
+
+        <h2>Jornada</h2><br>
+        <p>Estruturei uma jornada simples baseada no padrão diário:</p>
+        <ol>
+          <li>**Abertura do app** <br> O usuário vê seu status, XP atual e progresso do dia.</li>
+          <li>**Visualização das Missões** <br> As tarefas diárias são apresentadas como missões com níveis de
+            dificuldade.</li>
+          <li>**Missão/Missão Diária Concluída** <br> O usuário recebe feedback instantâneo e vê seu progresso
+            aumentar.</li>
+          <li>**Feedback Imediato** <br> Recebe animação de ganho de nível + XP.</li>
+          <li>**Gerenciamento do Dia** <br> O usuário revisa seu desempenho e vê quanto falta para subir de nível.
+          </li>
+        </ol>
+        <p>Essa jornada foi validada verbalmente com os participantes da pesquisa, que afirmaram preferir algo
+          "rápido e recompensador".</p>
+
+        <h2>Wireframes</h2><br>
+        <p>Os wireframes foram desenhados com foco em:</p>
+        <ul>
+          <li>Simplicidade.</li>
+          <li>Organização visual das missões.</li>
+          <li>Painel lateral com as tarefas e perfil.</li>
+          <li>Fluxo de conclusão de tarefas em no máximo 2 toques.</li>
+        </ul>
+        <p>A navegação foi pensada para ser disruptiva e fluida tanto em mobile quanto desktop.</p>
+
+        <h2>Protótipo</h2><br>
+        <p>O protótipo navegável foi criado no Figma com foco em:</p>
+        <ul>
+          <li>Interface escura e moderna, reduzindo fadiga visual.</li>
+          <li>Destaque para feedbacks positivos.</li>
+          <li>Botões grandes e acessíveis.</li>
+          <li>Microninterações suaves no ganho de XP.</li>
+        </ul>
+        <p>O protótipo está disponível no link dentro do portfólio e é totalmente navegável.</p>
+
+        <h2>Testes</h2><br>
+        <p>Foram realizados testes rápidos com 3 usuários (abordagem guerrilha):</p>
+
+        <h2>Principais percepções positivas:</h2><br>
+        <ul>
+          <li>"Parece um jogo mesmo, gostei disso."</li>
+          <li>"Simples, direto ao ponto, não fica me empurrando."</li>
+          <li>"Gostei do XP, me deu vontade de completar tudo."</li>
+        </ul><br>
+
+        <h2>Ajustes identificados:</h2><br>
+        <ul>
+          <li>Melhorar o contraste de alguns textos.</li>
+          <li>Adicionar feedback mais marcante ao concluir uma missão.</li>
+          <li>Deixar mais claro onde criar novas missões.</li>
+        </ul>
+        <p>Esses pontos já foram incorporados no protótipo final.</p>
+
+        <h2>Conclusões</h2><br>
+        <p>O Diary Quest mostrou que a gamificação pode transformar uma tarefa repetitiva (como registrar hábitos)
+          em algo motivador e leve.</p>
+        <p>O projeto me permitiu aplicar conceitos reais de:</p>
+        <ul>
+          <li>pesquisa,</li>
+          <li>estruturação de jornada,</li>
+          <li>prototipação,</li>
+          <li>testes rápidos,</li>
+          <li>design voltado à motivação do usuário.</li>
+        </ul>
+        <p>Também reforçou a importância de feedback imediato e sensação de progresso visível.</p>
+
+        <h2>Próximos Passos</h2><br>
+        <ul>
+          <li>Criar sistema de avatares personalizáveis.</li>
+          <li>Introduzir conquistas (badges) e desafios semanais.</li>
+          <li>Nova tela dedicada à criação de missões.</li>
+          <li>Expandir micro-interações com animações suaves.</li>
+          <li>Validar o protótipo com mais usuários e iniciar a versão 2.0.</li>
+          <li>Migrar para uma versão funcional com React.</li>
+        </ul>
+
+        <div class="project-button-container">
+          <a href="https://matheusmarton467.github.io/Projeto01" target="_blank" class="btn-ver-projeto"
+            data-speak="ver-projeto">Ver o Projeto</a>
+        </div>
+
+      </div>
     </div>
 
+    <div class="projeto" id="Projeto03">
+
+      <div class="conteudo-card">
+
+        <div class="project-image-container">
+          <img src="img/Projeto02.jpg" alt="Miniatura do Projeto Diary Quest">
+        </div>
+
+        <div class="info-projeto">
+          <h4>Em Breve</h4>
+          <h1>Contexto</h1><br>
+          <p>Aqui e so pra testar a descrição do projeto se acalme</p>
+        </div>
+
+      </div>
+
+      <div class="toggle-container">
+        <a href="#" class="btn-ver-projeto btn-detalhes-toggle btn-em-breve" data-speak="ver-projeto"
+          data-target="detalhes-projeto02">Em breve</a>
+      </div>
+
+      <div class="detalhes-adicionais" id="detalhes-projeto02">
+        <br>
+
+        <h2>Problema</h2><br>
+        <p>A maioria dos aplicativos de hábitos apresenta desafios comuns:</p>
+        <ul>
+          <li>Interface funcional, porém pouco engajadora.</li>
+          <li>Falta de recompensas claras ou feedback positivo.</li>
+          <li>Jornada do usuário linear e chata.</li>
+          <li>Pouca sensação de progresso real.</li>
+        </ul>
+        <p>Os usuários iniciam motivados, mas perdem interesse rapidamente porque a experiência parece mais uma
+          obrigação do que uma jornada evolutiva.</p>
+
+        <h2>Objetivos</h2><br>
+        <p>Criar uma experiência gamificada que incentive consistência:</p>
+        <ul>
+          <li>Transformar tarefas diárias em pequenas missões.</li>
+          <li>Adicionar recompensas visuais e sonoras imediatas.</li>
+          <li>Tornar o processo de consumo de hábitos mais divertido e menos burocrático.</li>
+          <li>Criar um fluxo coeso que funcione bem tanto no desktop quanto no mobile.</li>
+        </ul><br>
+
+        <h2>Pesquisa</h2><br>
+        <p>Realizei uma pesquisa exploratória de pequeno alcance com 5 usuários que já tinham utilizado apps de
+          hábitos. Entre os principais achados:</p>
+        <ul>
+          <li>Todos começaram apps de hábitos mais de uma vez, mas abandonaram após algumas semanas.</li>
+          <li>O principal motivo citado foi: "fica chato", "perde a graça", "vira obrigação".</li>
+          <li>3 disseram que a falta de feedback imediato era a maior frustração.</li>
+          <li>5 disseram que gostariam de sentir "progresso visual real".</li>
+          <li>2 mencionaram dificuldade de uso em telas menores.</li>
+        </ul><br>
+        <p>Também analisei brevemente apps concorrentes como Habitica, Tictic e Fabulous para entender boas práticas
+          e pontos fracos.</p>
+
+        <h2>Jornada</h2><br>
+        <p>Estruturei uma jornada simples baseada no padrão diário:</p>
+        <ol>
+          <li>**Abertura do app** <br> O usuário vê seu status, XP atual e progresso do dia.</li>
+          <li>**Visualização das Missões** <br> As tarefas diárias são apresentadas como missões com níveis de
+            dificuldade.</li>
+          <li>**Missão/Missão Diária Concluída** <br> O usuário recebe feedback instantâneo e vê seu progresso
+            aumentar.</li>
+          <li>**Feedback Imediato** <br> Recebe animação de ganho de nível + XP.</li>
+          <li>**Gerenciamento do Dia** <br> O usuário revisa seu desempenho e vê quanto falta para subir de nível.
+          </li>
+        </ol>
+        <p>Essa jornada foi validada verbalmente com os participantes da pesquisa, que afirmaram preferir algo
+          "rápido e recompensador".</p>
+
+        <h2>Wireframes</h2><br>
+        <p>Os wireframes foram desenhados com foco em:</p>
+        <ul>
+          <li>Simplicidade.</li>
+          <li>Organização visual das missões.</li>
+          <li>Painel lateral com as tarefas e perfil.</li>
+          <li>Fluxo de conclusão de tarefas em no máximo 2 toques.</li>
+        </ul>
+        <p>A navegação foi pensada para ser disruptiva e fluida tanto em mobile quanto desktop.</p>
+
+        <h2>Protótipo</h2><br>
+        <p>O protótipo navegável foi criado no Figma com foco em:</p>
+        <ul>
+          <li>Interface escura e moderna, reduzindo fadiga visual.</li>
+          <li>Destaque para feedbacks positivos.</li>
+          <li>Botões grandes e acessíveis.</li>
+          <li>Microninterações suaves no ganho de XP.</li>
+        </ul>
+        <p>O protótipo está disponível no link dentro do portfólio e é totalmente navegável.</p>
+
+        <h2>Testes</h2><br>
+        <p>Foram realizados testes rápidos com 3 usuários (abordagem guerrilha):</p>
+
+        <h2>Principais percepções positivas:</h2><br>
+        <ul>
+          <li>"Parece um jogo mesmo, gostei disso."</li>
+          <li>"Simples, direto ao ponto, não fica me empurrando."</li>
+          <li>"Gostei do XP, me deu vontade de completar tudo."</li>
+        </ul><br>
+
+        <h2>Ajustes identificados:</h2><br>
+        <ul>
+          <li>Melhorar o contraste de alguns textos.</li>
+          <li>Adicionar feedback mais marcante ao concluir uma missão.</li>
+          <li>Deixar mais claro onde criar novas missões.</li>
+        </ul>
+        <p>Esses pontos já foram incorporados no protótipo final.</p>
+
+        <h2>Conclusões</h2><br>
+        <p>O Diary Quest mostrou que a gamificação pode transformar uma tarefa repetitiva (como registrar hábitos)
+          em algo motivador e leve.</p>
+        <p>O projeto me permitiu aplicar conceitos reais de:</p>
+        <ul>
+          <li>pesquisa,</li>
+          <li>estruturação de jornada,</li>
+          <li>prototipação,</li>
+          <li>testes rápidos,</li>
+          <li>design voltado à motivação do usuário.</li>
+        </ul>
+        <p>Também reforçou a importância de feedback imediato e sensação de progresso visível.</p>
+
+        <h2>Próximos Passos</h2><br>
+        <ul>
+          <li>Criar sistema de avatares personalizáveis.</li>
+          <li>Introduzir conquistas (badges) e desafios semanais.</li>
+          <li>Nova tela dedicada à criação de missões.</li>
+          <li>Expandir micro-interações com animações suaves.</li>
+          <li>Validar o protótipo com mais usuários e iniciar a versão 2.0.</li>
+          <li>Migrar para uma versão funcional com React.</li>
+        </ul>
+
+        <div class="project-button-container">
+          <a href="https://matheusmarton467.github.io/Projeto01" target="_blank" class="btn-ver-projeto"
+            data-speak="ver-projeto">Ver o Projeto</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="projeto" id="Projeto04">
+
+      <div class="conteudo-card">
+
+        <div class="project-image-container">
+          <img src="img/Projeto02.jpg" alt="Miniatura do Projeto Diary Quest">
+        </div>
+
+        <div class="info-projeto">
+          <h4>Em Breve</h4>
+          <h1>Contexto</h1><br>
+          <p>Aqui e so pra testar a descrição do projeto se acalme</p>
+        </div>
+
+      </div>
+
+      <div class="toggle-container">
+        <a href="#" class="btn-ver-projeto btn-detalhes-toggle btn-em-breve" data-speak="ver-projeto"
+          data-target="detalhes-projeto02">Em breve</a>
+      </div>
+
+      <div class="detalhes-adicionais" id="detalhes-projeto02">
+        <br>
+
+        <h2>Problema</h2><br>
+        <p>A maioria dos aplicativos de hábitos apresenta desafios comuns:</p>
+        <ul>
+          <li>Interface funcional, porém pouco engajadora.</li>
+          <li>Falta de recompensas claras ou feedback positivo.</li>
+          <li>Jornada do usuário linear e chata.</li>
+          <li>Pouca sensação de progresso real.</li>
+        </ul>
+        <p>Os usuários iniciam motivados, mas perdem interesse rapidamente porque a experiência parece mais uma
+          obrigação do que uma jornada evolutiva.</p>
+
+        <h2>Objetivos</h2><br>
+        <p>Criar uma experiência gamificada que incentive consistência:</p>
+        <ul>
+          <li>Transformar tarefas diárias em pequenas missões.</li>
+          <li>Adicionar recompensas visuais e sonoras imediatas.</li>
+          <li>Tornar o processo de consumo de hábitos mais divertido e menos burocrático.</li>
+          <li>Criar um fluxo coeso que funcione bem tanto no desktop quanto no mobile.</li>
+        </ul><br>
+
+        <h2>Pesquisa</h2><br>
+        <p>Realizei uma pesquisa exploratória de pequeno alcance com 5 usuários que já tinham utilizado apps de
+          hábitos. Entre os principais achados:</p>
+        <ul>
+          <li>Todos começaram apps de hábitos mais de uma vez, mas abandonaram após algumas semanas.</li>
+          <li>O principal motivo citado foi: "fica chato", "perde a graça", "vira obrigação".</li>
+          <li>3 disseram que a falta de feedback imediato era a maior frustração.</li>
+          <li>5 disseram que gostariam de sentir "progresso visual real".</li>
+          <li>2 mencionaram dificuldade de uso em telas menores.</li>
+        </ul><br>
+        <p>Também analisei brevemente apps concorrentes como Habitica, Tictic e Fabulous para entender boas práticas
+          e pontos fracos.</p>
+
+        <h2>Jornada</h2><br>
+        <p>Estruturei uma jornada simples baseada no padrão diário:</p>
+        <ol>
+          <li>**Abertura do app** <br> O usuário vê seu status, XP atual e progresso do dia.</li>
+          <li>**Visualização das Missões** <br> As tarefas diárias são apresentadas como missões com níveis de
+            dificuldade.</li>
+          <li>**Missão/Missão Diária Concluída** <br> O usuário recebe feedback instantâneo e vê seu progresso
+            aumentar.</li>
+          <li>**Feedback Imediato** <br> Recebe animação de ganho de nível + XP.</li>
+          <li>**Gerenciamento do Dia** <br> O usuário revisa seu desempenho e vê quanto falta para subir de nível.
+          </li>
+        </ol>
+        <p>Essa jornada foi validada verbalmente com os participantes da pesquisa, que afirmaram preferir algo
+          "rápido e recompensador".</p>
+
+        <h2>Wireframes</h2><br>
+        <p>Os wireframes foram desenhados com foco em:</p>
+        <ul>
+          <li>Simplicidade.</li>
+          <li>Organização visual das missões.</li>
+          <li>Painel lateral com as tarefas e perfil.</li>
+          <li>Fluxo de conclusão de tarefas em no máximo 2 toques.</li>
+        </ul>
+        <p>A navegação foi pensada para ser disruptiva e fluida tanto em mobile quanto desktop.</p>
+
+        <h2>Protótipo</h2><br>
+        <p>O protótipo navegável foi criado no Figma com foco em:</p>
+        <ul>
+          <li>Interface escura e moderna, reduzindo fadiga visual.</li>
+          <li>Destaque para feedbacks positivos.</li>
+          <li>Botões grandes e acessíveis.</li>
+          <li>Microninterações suaves no ganho de XP.</li>
+        </ul>
+        <p>O protótipo está disponível no link dentro do portfólio e é totalmente navegável.</p>
+
+        <h2>Testes</h2><br>
+        <p>Foram realizados testes rápidos com 3 usuários (abordagem guerrilha):</p>
+
+        <h2>Principais percepções positivas:</h2><br>
+        <ul>
+          <li>"Parece um jogo mesmo, gostei disso."</li>
+          <li>"Simples, direto ao ponto, não fica me empurrando."</li>
+          <li>"Gostei do XP, me deu vontade de completar tudo."</li>
+        </ul><br>
+
+        <h2>Ajustes identificados:</h2><br>
+        <ul>
+          <li>Melhorar o contraste de alguns textos.</li>
+          <li>Adicionar feedback mais marcante ao concluir uma missão.</li>
+          <li>Deixar mais claro onde criar novas missões.</li>
+        </ul>
+        <p>Esses pontos já foram incorporados no protótipo final.</p>
+
+        <h2>Conclusões</h2><br>
+        <p>O Diary Quest mostrou que a gamificação pode transformar uma tarefa repetitiva (como registrar hábitos)
+          em algo motivador e leve.</p>
+        <p>O projeto me permitiu aplicar conceitos reais de:</p>
+        <ul>
+          <li>pesquisa,</li>
+          <li>estruturação de jornada,</li>
+          <li>prototipação,</li>
+          <li>testes rápidos,</li>
+          <li>design voltado à motivação do usuário.</li>
+        </ul>
+        <p>Também reforçou a importância de feedback imediato e sensação de progresso visível.</p>
+
+        <h2>Próximos Passos</h2><br>
+        <ul>
+          <li>Criar sistema de avatares personalizáveis.</li>
+          <li>Introduzir conquistas (badges) e desafios semanais.</li>
+          <li>Nova tela dedicada à criação de missões.</li>
+          <li>Expandir micro-interações com animações suaves.</li>
+          <li>Validar o protótipo com mais usuários e iniciar a versão 2.0.</li>
+          <li>Migrar para uma versão funcional com React.</li>
+        </ul>
+
+        <div class="project-button-container">
+          <a href="https://matheusmarton467.github.io/Projeto01" target="_blank" class="btn-ver-projeto"
+            data-speak="ver-projeto">Ver o Projeto</a>
+        </div>
+
+      </div>
+    </div>
+    <br>
   </section>
 
   <section id="certificados" class="projetos">
+
+    <br>
     <h3>Certificados</h3>
-    <div class="projeto">
 
-      <div class="project-image-container">
-        <img src="img/Certificado01.png" alt="Certificado - Nome do Curso">
+    <div class="certificados-container">
+
+      <div class="certificado-card" id="Certificado01">
+        <div class="certificado-image-container">
+          <img src="img/Certificado01.png" alt="Certificado Curso Udemy">
+        </div>
+        <div class="certificado-info">
+          <h4>Plano de Carreira UX Design Alura</h4><br>
+          <p>UX Design: Conheça o universo da experiência em produtos digitais</p><br>
+          <p class="data-certificado">Emitido em: NOV/2025</p>
+          <p class="carga-horaria">Carga Horária: 10h</p><br>
+          <a href="https://cursos.alura.com.br/certificate/2fd524c5-a16f-4704-a958-49a5f805ba94" target="_blank"
+            class="btn-ver-certificado" data-speak="ver-curriculo2">Ver Certificado</a>
+        </div>
       </div>
 
-      <h4>Alura IA com Gemini</h4>
-      <p>Imersão IA 4° edição da Alura em apoio com Google</p>
-      <p class="data-certificado">Conclusão: Outubro 2025</p>
-      <p class="carga-horaria">Carga Horária: 2h</p>
-      <a href="https://drive.google.com/file/d/14h07kp_DeKOVXFb3WhqpT2xUxsVb5yBv/view?usp=sharing"
-        target="_blank" data-speak="ver-curriculo1">Ver Certificado</a>
-    </div>
-
-    <div class="projeto">
-      <div class="project-image-container">
-        <img src="img/Certificado02.jpg" alt="Certificado - Nome do Curso">
+      <div class="certificado-card" id="Certificado02">
+        <div class="certificado-image-container">
+          <img src="img/Certificado02.jpg" alt="Certificado Curso Alura">
+        </div>
+        <div class="certificado-info">
+          <h4>Alura IA com Gemini</h4><br>
+          <p>Imersão IA 4° edição da Alura em apoio com Google</p><br>
+          <p class="data-certificado">Emitido em: OUT/2025</p>
+          <p class="carga-horaria">Carga Horária: 2h</p><br>
+          <a href="https://cursos.alura.com.br/immersion/certificate/d0b190ec-2b58-4b69-b529-c4a06b877d16"
+            target="_blank" class="btn-ver-certificado" data-speak="ver-curriculo1">Ver Certificado</a>
+        </div>
       </div>
 
-      <h4>[Nome do Curso 2]</h4>
-      <p class="data-certificado">Conclusão: Setembro 2023</p>
-      <p class="carga-horaria">Carga Horária: 40h</p>
-      <a href="https://www.gov.br/pt-br/servicos/verificar-autenticidade-de-certificado-de-regularidade-emitido"
-        target="_blank" data-speak="ver-curriculo2">Ver Certificado</a>
-    </div>
-
-    <div class="projeto">
-      <div class="project-image-container">
-        <img src="img/Certificado03.jpg" alt="Certificado - Nome do Curso">
+      <div class="certificado-card" id="Certificado03">
+        <div class="certificado-image-container">
+          <img src="img/Certificado03.jpg" alt="Certificado Curso Udemy">
+        </div>
+        <div class="certificado-info">
+          <h4>Em Breve</h4><br>
+          <p>Estou sempre fazendo cursos e me profissicializando , logo cadastro mais</p><br>
+          <p class="data-certificado">Emitido em: ?</p>
+          <p class="carga-horaria">Carga Horária: ?</p><br>
+          <a href="https://cursos.alura.com.br/immersion/certificate/d0b190ec-2b58-4b69-b529-c4a06b877d16"
+            target="_blank" class="btn-ver-certificado btn-em-breve" data-speak="ver-projeto">Em breve</a>
+        </div>
       </div>
 
-      <h4>[Nome do Curso 3]</h4>
-      <p class="data-certificado">Conclusão: Setembro 2023</p>
-      <p class="carga-horaria">Carga Horária: 40h</p>
-      <a href="https://www.gov.br/pt-br/servicos/verificar-autenticidade-de-certificado-de-regularidade-emitido"
-        target="_blank" data-speak="ver-curriculo1">Ver Certificado</a>
-    </div>
-
-    <div class="projeto">
-      <div class="project-image-container">
-        <img src="img/Certificado04.jpg" alt="Certificado - Nome do Curso">
+      <div class="certificado-card" id="Certificado04">
+        <div class="certificado-image-container">
+          <img src="img/Certificado03.jpg" alt="Certificado Curso Udemy">
+        </div>
+        <div class="certificado-info">
+          <h4>Em Breve</h4><br>
+          <p>Estou sempre fazendo cursos e me profissicializando , logo cadastro mais</p><br>
+          <p class="data-certificado">Emitido em: ?</p>
+          <p class="carga-horaria">Carga Horária: ?</p><br>
+          <a href="https://cursos.alura.com.br/immersion/certificate/d0b190ec-2b58-4b69-b529-c4a06b877d16"
+            target="_blank" class="btn-ver-certificado btn-em-breve" data-speak="ver-projeto">Em breve</a>
+        </div>
       </div>
 
-      <h4>[Nome do Curso 4]</h4>
-      <p class="data-certificado">Conclusão: Setembro 2023</p>
-      <p class="carga-horaria">Carga Horária: 40h</p>
-      <a href="https://www.gov.br/pt-br/servicos/verificar-autenticidade-de-certificado-de-regularidade-emitido"
-        target="_blank" data-speak="ver-curriculo3">Ver Certificado</a>
+      <br>
     </div>
+
   </section>
 
   <section class="contato">
@@ -239,8 +786,3 @@
 
 
 </html>
-
-
-
-
-

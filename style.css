@@ -1,5 +1,21 @@
 /* ==================================================================== */
-/* 1. CONFIGURAÇÕES BASE (RESET e FONTE)                               */
+/* 0. ÍNDICE / ORGANIZAÇÃO GERAL                                        */
+/* ==================================================================== */
+
+/* 1. CONFIGURAÇÕES BASE, VARIÁVEIS E RESET */
+/* 2. BACKGROUNDS E ESTRUTURA GERAL */
+/* 3. HEADER E ANIMAÇÃO GLOW */
+/* 4. PROJETOS (CARDS PRINCIPAIS) */
+/* 4.1. Estilos do Card Base e Efeitos de Hover */
+/* 4.2. Conteúdo Lateral (Imagem/Contexto) */
+/* 4.3. Botões e Expansão de Detalhes */
+/* 5. CERTIFICADOS (CARDS COMPACTOS) */
+/* 6. CONTATO E BOTÃO CV */
+/* 7. FANTASMA (NEON-CAT), BALÃO E EXPRESSÕES */
+/* 8. MEDIA QUERIES (RESPONSIVIDADE) */
+
+/* ==================================================================== */
+/* 1. CONFIGURAÇÕES BASE, VARIÁVEIS E RESET                            */
 /* ==================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
@@ -28,7 +44,7 @@ body {
 
 
 /* ==================================================================== */
-/* 2. BACKGROUNDS (VANTA, CANVAS LED)                                   */
+/* 2. BACKGROUNDS E ESTRUTURA GERAL                                    */
 /* ==================================================================== */
 
 #vanta-bg {
@@ -52,16 +68,9 @@ body {
     pointer-events: none;
 }
 
-
-/* ==================================================================== */
-/* 3. ESTRUTURA E ESTILO GERAL                                          */
-/* ==================================================================== */
-
 section {
     padding: 60px 20px;
     max-width: 1300px;
-    margin-left: auto;
-    margin-right: auto;
     margin: auto;
     position: relative;
     z-index: 1;
@@ -83,17 +92,14 @@ h3 {
 .sobre,
 .projetos,
 .contato {
-    /* CORREÇÃO: Fundo preto com 40% de opacidade para melhor leitura */
     background: rgba(0, 0, 0, 0.40);
-
-    /* Mantém as bordas e sombras neon */
     border: 1px solid rgba(0, 255, 255, 0.1);
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
 }
 
-/* Estilo de Links e Botões */
+/* Estilo de Links e Destaque */
 .contato a {
     color: var(--cyan);
     text-decoration: none;
@@ -106,14 +112,13 @@ h3 {
 
 .pink-neon {
     color: var(--pink);
-    /* Aplicamos o brilho neon rosa para destaque */
-    text-shadow: 0 0 5px var(--pink), 0 0 10px rgba(255, 105, 245, 0.4); 
-    /* Usamos um peso maior para que o texto se destaque na leitura */
-    font-weight: 600; 
+    text-shadow: 0 0 5px var(--pink), 0 0 10px rgba(255, 105, 245, 0.4);
+    font-weight: 600;
 }
 
+
 /* ==================================================================== */
-/* 4. HEADER E ANIMAÇÃO GLOW                                            */
+/* 3. HEADER E ANIMAÇÃO GLOW                                            */
 /* ==================================================================== */
 
 header {
@@ -149,146 +154,415 @@ header h2 {
 
 
 /* ==================================================================== */
-/* 5. CARDS DE PROJETO (PROJETOS SECTION)                               */
+/* 4. PROJETOS (CARDS PRINCIPAIS)                                       */
 /* ==================================================================== */
 
-.projeto {
+.projetos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: center;
+    max-width: none;
+    width: 80%;
+    overflow-x: visible;
+    padding: 0 40px;
+}
 
-    text-align: center;
-    flex: 1 1 250px;
+/* 4.1. Estilos do Card Base e Efeitos de Hover */
+.projeto {
+    flex: 1 1 100%;
+    max-width: 100%;
+    width: 100%;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 0;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.1), 0 0 4px rgba(255, 105, 245, 0.1);
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de Overlay Brilhante */
+.projeto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.15), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+}
+
+.projeto:hover::before {
+    opacity: 1;
+}
+
+.projeto:hover {
+    background: rgba(0, 0, 16, 0.7);
+    border-color: var(--pink);
+    box-shadow:
+        0 0 15px var(--cyan),
+        0 0 30px var(--pink);
+    transform: translateY(-8px);
+}
+
+/* 4.2. Conteúdo Lateral (Imagem/Contexto) */
+.conteudo-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.project-image-container {
+    width: 100%;
     max-width: 300px;
-    background: rgba(0, 255, 255, 0.1);
-    border: 1px solid rgba(0, 255, 255, 0.3);
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
+    margin: 0 auto 20px auto;
+    /* Centraliza a imagem no mobile */
+}
+
+.projeto img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    background-color: #000010;
+    transition: transform 0.3s ease-in-out;
+}
+
+.projeto:hover .project-image-container img {
+    transform: scale(1.06);
+    /* Leve zoom in */
+}
+
+.info-projeto {
+    flex-grow: 1;
+    width: 100%;
+    /* Ocupa o restante da largura */
+    text-align: left;
+}
+
+.projeto h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: var(--pink);
+    font-size: 1.5rem;
+    text-shadow: 0 0 8px var(--pink);
+    font-weight: 600;
+}
+
+.projeto p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #c0c0e0;
+}
+
+
+/* 4.3. Botões e Expansão de Detalhes */
+.buttons-bar-container {
+    width: 100%;
+    margin-top: 15px;
+
+    /* Configuração Flexbox */
+    display: flex;
+    justify-content: space-between;
+    /* CRÍTICO: Empurra os botões para as extremidades */
+    align-items: center;
+
+    /* Remova o padding-left/right aqui. Eles serão definidos no item abaixo. */
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Estilo Base do Botão (aplicado a .btn-detalhes-toggle e .btn-ver-projeto) */
+.projeto a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    text-decoration: none;
+    color: var(--pink);
+    background-color: transparent;
+    font-weight: bold;
+    border-radius: 30px;
+    border: 2px solid var(--pink);
+    box-shadow: 0 0 8px var(--pink), inset 0 0 4px var(--pink);
+    transition: all 0.3s ease;
+}
+
+.projeto a:hover {
+    color: #000;
+    background-color: var(--pink);
+    border-color: var(--cyan);
+    box-shadow: 0 0 20px var(--cyan), 0 0 35px rgba(0, 255, 255, 0.5);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.btn-detalhes-toggle {
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle;
+
+    padding-right: 40px !important;
+    transition: all 0.3s ease;
+}
+
+.btn-detalhes-toggle::after {
+    content: '∨';
+    position: absolute;
+    right: 15px;
+    top: 55%;
+    transform: translateY(-50%) rotate(0deg);
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.btn-detalhes-toggle.fechando::after {
+    content: '∧';
+    transform: translateY(-50%) rotate(360deg);
+}
+
+.btn-em-breve {
+    opacity: 0.7;
+    cursor: default !important;
+    box-shadow: 0 0 8px var(--pink), inset 0 0 4px var(--pink) !important;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+}
+
+.btn-em-breve:hover {
+    color: var(--pink) !important;
+    background-color: transparent !important;
+    border-color: var(--pink) !important;
+    box-shadow: 0 0 8px var(--pink), inset 0 0 4px var(--pink) !important;
+    transform: none !important;
+}
+
+.btn-em-breve::after {
+    content: '' !important;
+}
+
+.btn-link-direto::after {
+    content: '' !important;
+}
+
+/* Garante que o botão não se mova no hover do card */
+.projeto:hover .btn-detalhes-toggle {
+    transform: none;
+}
+
+.toggle-container {
+    width: 100%;
+    /* Ocupa a largura total do card */
+    margin-top: 15px;
+    padding-left: 20px;
+    /* Padding padrão do card (.projeto) */
+}
+
+.project-button-container {
+    /* Container para o botão de rodapé da expansão (se houver) */
+    text-align: center;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.detalhes-adicionais {
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+    transition: max-height 0.7s ease-in-out, opacity 0.7s ease-in-out, padding 0.7s ease-in-out;
+}
+
+.detalhes-adicionais.ativo {
+    max-height: 5000px;
+    opacity: 1;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.detalhes-adicionais ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding-left: 0;
+    color: var(--cyan);
+}
+
+.detalhes-adicionais li {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+
+/* ==================================================================== */
+/* 5. CERTIFICADOS (CARDS COMPACTOS)                                   */
+/* ==================================================================== */
+
+.certificados-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    /* Mantendo o espaçamento */
+    justify-content: center;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.certificado-card {
+    /* ADAPTAÇÃO DO .projeto para o certificado */
+    text-align: center;
+
+    /* Largura para 4 por linha: 25% - gap (ajustado na Media Query) */
+    flex: 1 1 calc(25% - 23px);
+    max-width: 280px;
+    /* Reduzido para caber 4 */
+    min-width: 180px;
+
+    /* Estilo Neon */
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 255, 255, 0.2);
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 0;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
     transition: 0.3s;
-}
 
-.projetos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.project-image-container {
-    width: 100%;
-    padding-top: 100%;
     position: relative;
-    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+/* Efeito de Overlay Brilhante (herdado do .projeto) */
+.certificado-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.15), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+    border-radius: 10px;
+}
+
+.certificado-card:hover::before {
+    opacity: 1;
+}
+
+.certificado-card:hover {
+    /* Estilo HOVER idêntico ao .projeto */
+    background: rgba(0, 255, 255, 0.15);
+    border-color: transparent;
+    box-shadow:
+        0 0 15px var(--pink),
+        0 0 30px rgba(0, 255, 255, 0.4);
+    transform: translateY(-5px);
+}
+
+
+/* CONTAINER DA IMAGEM DO CERTIFICADO */
+.certificado-image-container {
+    width: 100%;
+    padding-top: 70%;
+    /* PROPORÇÃO: Mais larga que alta (típico de certificados) */
+    position: relative;
+    margin-bottom: 15px;
+    /* Menor que o projeto padrão */
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid rgba(0, 255, 255, 0.2);
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.15), 0 0 20px rgba(255, 105, 245, 0.1);
 }
 
-.projeto img {
-    /* Posiciona a imagem absolutamente para ocupar o espaço definido pelo padding-top */
+.certificado-card img {
+    /* Imagem absoluta dentro do container */
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
-
-    /* CRUCIAL: Usa 'contain' para mostrar a imagem INTEIRA sem cortes ou esticar. */
-    object-fit: contain;
-
-    /* Adiciona um background escuro para as bordas que surgirem */
+    object-fit: cover;
     background-color: #000010;
-
     display: block;
     transition: transform 0.3s ease-in-out;
 }
 
-.projeto:hover .project-image-container {
+.certificado-card:hover .certificado-image-container {
     transform: scale(0.98);
-    /* Zoom out leve para dar foco ao brilho */
     box-shadow: 0 0 15px var(--cyan), 0 0 30px var(--pink);
-    /* Brilho maior no hover */
 }
 
-.projeto:hover .project-image-container img {
-    transform: scale(1.0);
-    /* Remove o zoom na imagem, que agora está no container */
+/* TÍTULO DO CERTIFICADO */
+.certificado-info h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    /* Mais compacto */
+    color: var(--pink);
+    font-size: 1.1rem;
+    text-shadow: 0 0 8px var(--pink);
+    font-weight: 600;
 }
 
-.projeto:hover {
-    /* Mantém o fundo sutil do card, ou torna ele levemente mais opaco */
-    background: rgba(0, 255, 255, 0.15);
-    /* Aumenta ligeiramente a opacidade do azul */
-
-    /* REMOVA A BORDA PADRÃO NO HOVER para que o brilho se destaque */
-    border-color: transparent;
-
-    /* NOVO: Sombra Dupla com Pink Dominante no HOVER */
-    box-shadow:
-        0 0 15px var(--pink),
-        /* Sombra pink forte */
-        0 0 30px rgba(0, 255, 255, 0.4);
-    /* Sombra ciano mais suave */
-
-    /* Efeito de "subir" o card */
-    transform: translateY(-5px);
-    /* Aumenta um pouco o efeito de flutuação */
+/* DATA E CARGA HORÁRIA (Menores e Ciano) */
+.certificado-info p {
+    margin-bottom: 2px;
+    /* Espaçamento super compacto */
+    font-size: 0.85rem;
+    color: var(--cyan);
+    opacity: 0.9;
 }
 
-.projeto a {
-    /* Transforma o link em um botão */
+.data-certificado,
+.carga-horaria {
+    font-size: 0.85rem;
+    color: var(--cyan);
+    opacity: 0.8;
+    margin: 5px 0;
+}
+
+/* BOTÃO VER CERTIFICADO */
+.btn-ver-certificado {
+    /* Estilo do botão idêntico ao .projeto a */
     display: inline-block;
     padding: 8px 15px;
     margin-top: 15px;
-
-    /* ESTADO NORMAL: Fundo Escuro, Texto Ciano */
     color: var(--cyan);
     background-color: #080818;
     font-weight: bold;
     border-radius: 20px;
     cursor: pointer;
-
-    /* Efeito Neon de Borda */
     border: 1px solid var(--cyan);
     box-shadow: 0 0 5px var(--cyan), 0 0 10px rgba(255, 105, 245, 0.4);
-
     transition: all 0.3s ease;
     text-decoration: none;
-    /* Mantém a remoção do underline */
 }
 
-.projeto a:active {
-    transform: translateY(0) scale(0.98);
-    box-shadow: 0 0 5px var(--cyan), 0 0 10px var(--pink);
-}
-
-.projeto a:hover {
+.btn-ver-certificado:hover {
     color: #000;
-    /* Texto Preto Sólido */
     background-color: var(--cyan);
     border-color: var(--pink);
     box-shadow: 0 0 10px var(--pink), 0 0 20px var(--cyan);
     transform: translateY(-2px) scale(1.02);
 }
 
-.projeto p {
-    margin-bottom: 15px;
-    font-size: 0.95rem;
-}
-
-.projeto h4 {
-    margin-top: 10px;
-    margin-bottom: 8px;
-    
-    /* ALTERAÇÃO CRÍTICA AQUI: MUDAR PARA ROSA NEON */
-    color: var(--pink); 
-    font-size: 1.1rem;
-    text-shadow: 0 0 8px var(--pink); /* O brilho agora é rosa */
-    /* FIM DA ALTERAÇÃO */
-}
 
 /* ==================================================================== */
-/* 6. CONTATO E BOTÃO CV                                                */
+/* 6. CONTATO E BOTÃO CV                                                */
 /* ==================================================================== */
 
 .contato {
@@ -324,7 +598,7 @@ header h2 {
 
 
 /* ==================================================================== */
-/* 7. FANTASMA (NEON-CAT) E ANIMAÇÃO DE MOVIMENTO                       */
+/* 7. FANTASMA (NEON-CAT), BALÃO E EXPRESSÕES                           */
 /* ==================================================================== */
 
 #neon-cat {
@@ -434,11 +708,7 @@ header h2 {
     }
 }
 
-
-/* ==================================================================== */
-/* 8. BALÃO DE FALA (GHOST-SPEECH-BUBBLE)                               */
-/* ==================================================================== */
-
+/* Balão de Fala (GHOST-SPEECH-BUBBLE) */
 #ghost-speech-bubble {
     position: fixed;
     /* Posição fixa na tela (viewport) */
@@ -490,17 +760,11 @@ header h2 {
     border-top-color: var(--pink);
 }
 
-
-/* ==================================================================== */
-/* 9. EXPRESSÕES FACIAIS (OVERRIDE DO SVG)                              */
-/* ==================================================================== */
-
-/* 1. Visibilidade: Esconde APENAS as expressões alternativas por padrão */
+/* Expressões Faciais (OVERRIDE DO SVG) */
 #expressions g {
     display: none;
 }
 
-/* 2. Regras de Ativação: Mostra a expressão alternativa e esconde a padrão */
 .exp-desafio #exp-desafio {
     display: block !important;
 }
@@ -533,14 +797,11 @@ header h2 {
     display: none !important;
 }
 
-/* 3. Estilo dos olhos e animação */
-
 /* Olhos da expressão PADRÃO (Com piscada) */
 #default-exp .eye {
     fill: var(--pink) !important;
     filter: drop-shadow(0 0 6px var(--pink));
     animation: blink 4.8s steps(1) infinite;
-    /* Reativa a piscada no padrão */
 }
 
 /* Olhos em expressões alternativas (Sem piscada) */
@@ -550,54 +811,87 @@ header h2 {
     animation: none !important;
 }
 
-/* Traços em expressões alternativas (Se for diferente do padrão) */
 #expressions g .stroke {
     stroke: var(--pink);
     fill: none;
     filter: drop-shadow(0 0 6px var(--pink));
 }
 
-/* ==================================================================== */
-/* 10. ESTILOS ESPECÍFICOS PARA CERTIFICADOS                            */
-/* ==================================================================== */
-
-/* Estilo para a data e carga horária */
-.data-certificado,
-.carga-horaria {
-    /* Diminui a fonte para dar mais espaço */
-    font-size: 0.85rem;
-
-    /* Adiciona um toque neon na cor */
-    color: var(--cyan);
-
-    /* Garante que o texto se destaque um pouco */
-    opacity: 0.8;
-    margin: 5px 0;
-}
-
-/* Garante que a descrição do projeto não conflite */
-.projeto p {
-    margin-bottom: 15px;
-    /* Ajusta o espaçamento abaixo do texto do projeto */
-}
 
 /* ==================================================================== */
-/* MEDIA QUERIES (PARA RESPONSIVIDADE)                                 */
+/* 8. MEDIA QUERIES (RESPONSIVIDADE)                                   */
 /* ==================================================================== */
 
-/* Dispositivos menores que 768px (tablets e celulares) */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
 
-    /* Esta regra é crucial: permite que o card ocupe toda a largura */
-    .projeto {
-        max-width: 100%;
-        /* Ocupa 100% da largura da seção */
+    /* Ajustes para Projetos (Layout lado a lado) */
+    .conteudo-card {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 50px;
     }
 
-    /* Reduz o padding das seções em telas pequenas */
-    .sobre,
-    .projetos,
-    .contato {
-        padding: 20px;
+    .project-image-container {
+        flex: 0 0 200px;
+        max-width: 200px;
+        margin: 0;
+        height: 100%;
+    }
+
+    .info-projeto {
+        flex-grow: 1;
+    }
+
+    .info-projeto h4,
+    .info-projeto p {
+        text-align: left;
+    }
+
+    /* Alinhamento dos botões e detalhes (Recuo da imagem) */
+    .buttons-bar-container,
+    .detalhes-adicionais {
+        margin-left: calc(200px + 50px);
+        width: calc(100% - 250px);
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .buttons-bar-container {
+        justify-content: space-between;
+    }
+
+    /* Correção: Garante que o conteúdo expandido ocupe o espaço correto */
+    .detalhes-adicionais {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .toggle-container {
+        padding-left: calc(200px + 50px + 20px);
+    }
+}
+
+
+@media (min-width: 600px) {
+
+    /* Certificados: 2 cards por linha */
+    .certificado-card {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (min-width: 992px) {
+
+    /* Certificados: 3 cards por linha */
+    .certificado-card {
+        flex: 1 1 calc(33.33% - 20px);
+    }
+}
+
+@media (min-width: 1200px) {
+
+    /* Certificados: 4 cards por linha em telas extra grandes */
+    .certificado-card {
+        flex: 1 1 calc(25% - 23px);
     }
 }
